@@ -2,6 +2,11 @@ import {createBrowserRouter} from "react-router";
 import HomeLayouts from "../layouts/HomeLayouts";
 import Home from "../pages/Home";
 import CategoryNews from "../pages/CategoryNews";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import AuthLayout from "../layouts/AuthLayout";
+import NewsDetails from "../pages/NewsDetails";
+import PrivateRoute from "../components/PrivateRoute";
 
 export const router = createBrowserRouter(
     [
@@ -23,11 +28,24 @@ export const router = createBrowserRouter(
         },
         {
             path:'/auth',
-            element: <h2>authentication</h2>
+            element: <AuthLayout></AuthLayout>,
+            children:[
+                {
+                    path:"/auth/login",
+                    element:<Login></Login>
+                },
+                {
+                    path:'/auth/register',
+                    element:<Register></Register>
+                }
+            ]
         },
         {
-            path:'/news',
-            element: <h1>news</h1>
+            path:'/news-details/:id',
+            element: <PrivateRoute>
+                <NewsDetails></NewsDetails>
+            </PrivateRoute>,
+            loader: ()=>fetch("/news.json")
         },
         {
             path:'/*',

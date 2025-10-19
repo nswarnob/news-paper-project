@@ -12,12 +12,12 @@ const CategoryNews = () => {
       setCategoryNews(data);
       return;
     } else if (id == "1") {
-      const filteredNews = data.filter(
-        (news) => news.others.is_today_pick == true
+      const filteredNews = data?.filter(
+        (news) => news?.others?.is_today_pick == true
       );
       setCategoryNews(filteredNews);
     } else {
-      const filteredNews = data.filter((news) => news.category_id == id);
+      const filteredNews = data?.filter((news) => news.category_id == id);
       setCategoryNews(filteredNews);
     }
   }, [data, id]);
@@ -25,13 +25,13 @@ const CategoryNews = () => {
   return (
     <div>
       <h2 className=" font-bold mb-5">
-        Total <span className="text-secondary">{categoryNews.length}</span> news
+        Total <span className="text-secondary">{categoryNews?.length}</span> news
         found
       </h2>
 
       <div className="grid grid-cols-1 gap-5">
-        {categoryNews.map((news) => (
-          <NewsCard news={news} key={news.id}></NewsCard>
+        {categoryNews?.map((news) => (
+          <NewsCard news={news} key={news?.id}></NewsCard>
         ))}
       </div>
     </div>
