@@ -20,19 +20,17 @@ const HomeLayouts = () => {
           <Navbar></Navbar>
         </nav>
       </header>
-      <main className="w-11/12 mx-auto my-3 grid grid-cols-12">
-        <aside className="col-span-3 h-fit top-0 sticky">
-          {" "}
-          <LeftAside></LeftAside>{" "}
+      <main className=" w-11/12  mx-auto my-3 grid grid-cols-12  md:gap-6">
+        <aside className="col-span-12 md:col-span-3 h-fit top-0 md:sticky order-1 md:order-none">
+          <LeftAside />
         </aside>
 
-        <section className="main col-span-6">
-          {state == "loading" ? <Loading></Loading> : <Outlet></Outlet>}
+        <section className="col-span-12 md:col-span-6 order-2 md:order-none">
+          {state === "loading" ? <Loading /> : <Outlet />}
         </section>
 
-        <aside className="col-span-3 h-fit top-0 sticky">
-          {" "}
-          <RightAside></RightAside>{" "}
+        <aside className="col-span-12 md:col-span-3 h-fit top-0 md:sticky order-3 md:mt-0 mt-10 md:order-none">
+          <RightAside />
         </aside>
       </main>
     </div>

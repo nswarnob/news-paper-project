@@ -16,7 +16,7 @@ const NewsCard = ({ news }) => {
   };
 
   return (
-    <div className="bg-white rounded-lg space-y-2 shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden mx-10 min-w-sm">
+    <div className="bg-white rounded-lg space-y-2 shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden min-w-sm">
       {/* Author Info & Actions */}
       <div className="flex items-center bg-base-200 justify-between p-4 pb-3">
         <div className="flex items-center gap-3">
